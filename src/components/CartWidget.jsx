@@ -1,9 +1,5 @@
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import React from "react";
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 export default function CartWidget({ greeting }) {
-  return (
-
-    <ShoppingCartIcon />
-
-  );
+  return <ShoppingCartIcon />;
 }
