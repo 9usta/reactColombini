@@ -1,0 +1,8 @@
+.galeria {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: space-around;
+    margin: 20px 0px;
+
+}

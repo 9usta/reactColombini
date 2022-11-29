@@ -1,36 +1,44 @@
-import './App.css';
-import '@fontsource/roboto/300.css';
-import '@fontsource/roboto/400.css';
-import '@fontsource/roboto/500.css';
-import '@fontsource/roboto/700.css';
-import Navbar from './components/Navbar';
+import "@fontsource/roboto/300.css";
+import "@fontsource/roboto/400.css";
+import "@fontsource/roboto/500.css";
+import "@fontsource/roboto/700.css";
+import CssBaseline from "@mui/material/CssBaseline";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { createContext, useState } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./App.css";
+import CartWidget from "./components/CartWidget";
+import ItemDetailContainer from "./components/ItemDetailContainer";
+import ItemListContainer from "./components/ItemListContainer";
+import NavBar from "./components/NavBar";
 
-import ItemListContainer from './components/ItemListContainer';
-
-import { ThemeProvider, createTheme } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
-
-
+export const cartContext =createContext();
 const darkTheme = createTheme({
   palette: {
-    mode: 'dark',
+    mode: "dark",
   },
 });
 
-function App() {
+export default function App() {
+  const [cart,setCart] = useState([]);
 
   return (
-
-    <div>
+    <>
+    <cartContext.Provider value={{cart}}>
+    <BrowserRouter>
       <ThemeProvider theme={darkTheme}>
         <CssBaseline />
       </ThemeProvider>
-      <Navbar />
-      <ItemListContainer greeting={"mensaje dentro del contenedor"} />
-    </div>
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<ItemListContainer />} />
+        <Route path="/category/:idCategory" element={<ItemListContainer />} />
+        <Route path="/item/:idItem" element={<ItemDetailContainer />} />
 
+        <Route path="/cart" element={<CartWidget />} />
+      </Routes>
+    </BrowserRouter>
+    </cartContext.Provider>
+    </>
   );
 }
-
-export default App;
-
