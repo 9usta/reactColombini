@@ -1,4 +1,4 @@
-Esta es la entrega final del Proyecto de React JS
+Esta es la entrega final del Proyecto de React JS. 
 Utilice JS, HTML y CSS
 Tiene como librería MUI
 
