@@ -9,20 +9,20 @@ export default function ItemDetailContainer() {
 
   useEffect(() => {
     const db = getFirestore();
-    const refDoc=doc(db, "products",idItem)
+    const refDoc = doc(db, "products", idItem);
 
     getDoc(refDoc).then((item) => {
-      const auxProduct ={
+      const auxProduct = {
         ...item.data(),
         id: item.id,
-      }
+      };
       setProduct(auxProduct);
     });
   }, [idItem]);
 
   return (
-  <div className="container">
-  <ItemDetail product={product} />
-</div>);
-
+    <div className="container">
+      <ItemDetail product={product} />
+    </div>
+  );
 }

@@ -5,8 +5,8 @@ import { useParams } from "react-router-dom";
 
 export default function ItemListContainer() {
   const [products, setProducts] = useState([]);
-  const {idCategory}=useParams();
-  
+  const { idCategory } = useParams();
+
   useEffect(() => {
     const db = getFirestore();
     let miCollection;
