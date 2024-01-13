@@ -22,7 +22,7 @@ export default function CartContextComponent({ children }) {
   }
 
   function deleteFromCart(id) {
-    setCart(cart.filter((item) => item.id != id));
+    setCart(cart.filter((item) => item.id !== id));
   }
   function deleteCart() {
     setCart([]);
