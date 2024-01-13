@@ -1,7 +1,6 @@
-import { setIndexConfiguration } from "firebase/firestore";
+
 import React, { useState, useEffect } from "react";
 import { useContext } from "react";
-import { json } from "react-router-dom";
 import { cartContext } from "../CartContextComponent";
 import { Link } from "react-router-dom";
 
